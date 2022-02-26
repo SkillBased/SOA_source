@@ -1,1 +1,1 @@
-modified code, dockerfile and requirements
+Modified code, dockerfile and requirements; run via docker
