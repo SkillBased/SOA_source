@@ -11,6 +11,9 @@ voice is detected automatically with amplitude through input rms
 Due to no gui present, all notifications are written in the console. This includes active speakers and room member updates.
 
 Known errors (not required directly in the task):
+
 -- non-unique names lead to UB
+
 -- reconnection after a disconnect is impossible
+
 -- audio buffer is unstable in the first second of speech (but still delivers most of the sound)
