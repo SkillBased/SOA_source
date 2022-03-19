@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+message Connection {
+    string connip = 1;
+    string name = 2;
+}
+
+message ServerAck {
+    int32 userid = 1;
+    bool ack = 2;
+}
+
+message Action {
+    int32 userid = 1;
+    int32 targetid = 2;
+    string action = 3;
+    string params = 4;
+}
+
+message Lookup {
+    int32 userid = 1;
+    int32 last_message = 2;
+}
+
+message Update {
+    int32 status = 1;
+    repeated int32 playerids = 2;
+    repeated string playernames = 3;
+    repeated int32 playerstat = 4;
+    repeated string messages = 5;
+}
+
+service ConnectionService {
+    rpc accept(Connection) returns (ServerAck);
+}
+
+service UpdateService {
+    rpc process(Lookup) returns (Update);
+}
+
+service ActionService {
+    rpc commit(Action) returns (ServerAck);
+}
